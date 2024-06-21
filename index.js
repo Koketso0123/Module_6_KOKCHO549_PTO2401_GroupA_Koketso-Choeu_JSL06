@@ -24,8 +24,8 @@ const menu = {
         const menuText = document.createElement("li");
         menuText.textContent = item;
         menuText.addEventListener("click" , () => {
-            document.getElementById("order-items").textContent += item; 
-           
+            // document.getElementById("order-items").textContent += item; 
+            addToOrder(item);
          })
         menuList.appendChild(menuText);
       })
@@ -46,20 +46,19 @@ const orderTotal = document.getElementById("order-total");
     
 const orderList = document.createElement("li");
     // Set the text content of the list item to the item name
-orderList.textContent = menuText;
+orderList.textContent = itemName;
     // Append the list item to the order items list
     
 orderItems.appendChild(orderList);
      // Calculate and update the total price
-
-
-var numTotal = parseFloat(orderTotal.textContent) 
-var newTotal = numTotal + 50;
-  // Update the text content of the order total element with the new total
-
-    orderTotal.textContent = newTotal;
+     const orderTotalNum = parseFloat(orderTotal.textContent); 
+     const newTotal = orderTotalNum + 50;
+        
+       
+       // Update the text content of the order total element with the new total
+     
+      orderTotal.textContent = newTotal;  
 }
-
 // Function to initialize the menu system
 function initMenuSystem(menu) {
     // Call the function to display menu items
